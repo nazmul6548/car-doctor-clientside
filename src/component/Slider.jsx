@@ -1,59 +1,71 @@
-
+import img1 from "../assets/images/banner/1.jpg"
+import img2 from "../assets/images/banner/2.jpg"
+import img3 from "../assets/images/banner/3.jpg"
+import img4 from "../assets/images/banner/4.jpg"
+import img5 from "../assets/images/banner/5.jpg"
+import img6 from "../assets/images/banner/6.jpg"
 
 const Slider = () => {
+
+  
+   
     return (
-        <div>
-        <div id="indicators-carousel" className="relative w-full" data-carousel="static">
-          {/* Carousel wrapper */}
-          <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-            {/* Item 1 */}
-            <div className="duration-700 ease-in-out" data-carousel-item="active">
-              <img src="https://i.ibb.co/znWkk8h/pexels-josh-hild-3229916.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            </div>
-            {/* Item 2 */}
-            <div className="duration-700 ease-in-out" data-carousel-item>
-              <img src="https://i.ibb.co/k1c13mD/chuttersnap-OB7ol699-Iww-unsplash.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            </div>
-            {/* Item 3 */}
-            <div className="duration-700 ease-in-out" data-carousel-item>
-              <img src="https://i.ibb.co/WzpXbDS/pexels-vincent-rivaud-2227774.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            </div>
-            {/* Item 4 */}
-            <div className="duration-700 ease-in-out" data-carousel-item>
-              <img src="https://i.ibb.co/znWkk8h/pexels-josh-hild-3229916.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            </div>
-            {/* Item 5 */}
-            <div className="duration-700 ease-in-out" data-carousel-item>
-              <img src="https://i.ibb.co/k1c13mD/chuttersnap-OB7ol699-Iww-unsplash.jpg" className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            </div>
-          </div>
-          {/* Slider indicators */}
-          <div className="absolute z-30 flex -translate-x-1/2 space-x-3 rtl:space-x-reverse bottom-5 left-1/2">
-            <button type="button" className="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
-            <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
-            <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
-            <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-            <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
-          </div>
-          {/* Slider controls */}
-          <button type="button" className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-              <svg className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 1 1 5l4 4"/>
-              </svg>
-              <span className="sr-only">Previous</span>
-            </span>
-          </button>
-          <button type="button" className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-            <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-              <svg className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4"/>
-              </svg>
-              <span className="sr-only">Next</span>
-            </span>
-          </button>
+      <div className="carousel w-full h-[550px]">
+      <div id="slide1" className=" carousel-item relative w-full">
+        <img src={img1} className="w-full" />
+
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center w-full font-bold text-6xl">
+        <div className="text-bold">
+        <h2 className="text-6xl font-bold">Affordable Price For Car Servicing</h2>
         </div>
+    </div>
+
+      
+        <div className="absolute flex  transform -translate-y-1/2 left-5 right-5 justify-end bottom-2">
+        <a href="#slide6" className="btn btn-circle bg-[#FF3811] border-none mr-6">❮</a> 
+        <a href="#slide2" className="btn btn-circle bg-[#FF3811] border-none ml-6">❯</a>
       </div>
+       
+    
+      
+       
+      </div> 
+      <div id="slide2" className="carousel-item relative w-full">
+        <img src={img2} className="w-full" />
+        <div className="absolute flex  transform -translate-y-1/2 left-5 right-5 justify-end bottom-2">
+        <a href="#slide1" className="btn btn-circle bg-[#FF3811] border-none mr-6">❮</a> 
+        <a href="#slide3" className="btn btn-circle bg-[#FF3811] border-none ml-6">❯</a>
+      </div>
+      </div> 
+      <div id="slide3" className="carousel-item relative w-full">
+        <img src={img3} className="w-full" />
+        <div className="absolute flex  transform -translate-y-1/2 left-5 right-5 justify-end bottom-2">
+        <a href="#slide2" className="btn btn-circle bg-[#FF3811] border-none mr-6">❮</a> 
+        <a href="#slide4" className="btn btn-circle bg-[#FF3811] border-none ml-6">❯</a>
+      </div>
+      </div> 
+      <div id="slide4" className="carousel-item relative w-full">
+        <img src={img4} className="w-full" />
+        <div className="absolute flex  transform -translate-y-1/2 left-5 right-5 justify-end bottom-2">
+        <a href="#slide3" className="btn btn-circle bg-[#FF3811] border-none mr-6">❮</a> 
+        <a href="#slide5" className="btn btn-circle bg-[#FF3811] border-none ml-6">❯</a>
+      </div>
+      </div>
+      <div id="slide5" className="carousel-item relative w-full">
+        <img src={img5} className="w-full" />
+        <div className="absolute flex  transform -translate-y-1/2 left-5 right-5 justify-end bottom-2">
+        <a href="#slide4" className="btn btn-circle bg-[#FF3811] border-none mr-6">❮</a> 
+        <a href="#slide6" className="btn btn-circle bg-[#FF3811] border-none ml-6">❯</a>
+      </div>
+      </div>
+      <div id="slide6" className="carousel-item relative w-full">
+        <img src={img6} className="w-full" />
+        <div className="absolute flex  transform -translate-y-1/2 left-5 right-5 justify-end bottom-2">
+        <a href="#slide5" className="btn btn-circle bg-[#FF3811] border-none mr-6">❮</a> 
+        <a href="#slide1" className="btn btn-circle bg-[#FF3811] border-none ml-6">❯</a>
+      </div>
+      </div>
+    </div>
     );
 };
 

@@ -44,10 +44,12 @@ const Navbar = () => {
                 } `}
               >
                 <ul className="block lg:flex">
-                  <ListItem NavLink="/#">Home</ListItem>
-                  <ListItem NavLink="/#">Payment</ListItem>
+                  <ListItem NavLink="/">Home</ListItem>
+                  
                   <ListItem NavLink="/#">About</ListItem>
+                  <ListItem NavLink="/#">Services</ListItem>
                   <ListItem NavLink="/#">Blog</ListItem>
+                  <ListItem NavLink="/#">Contact</ListItem>
                 </ul>
               </nav>
             </div>
@@ -61,9 +63,9 @@ const Navbar = () => {
 
               <a
                 href="/#"
-                className="rounded-md bg-primary px-7 py-3 text-base font-medium text-white hover:bg-primary/90"
+                className="rounded-md border-2 border-[#FF3811] text-[#FF3811] px-7 py-3 text-base font-medium  hover:text-black hover:bg-[#FF3811]"
               >
-                Sign Up
+                Appointment
               </a>
             </div>
           </div>

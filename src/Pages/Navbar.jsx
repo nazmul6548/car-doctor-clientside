@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ImCross } from "react-icons/im";
-
+import logo from "../assets/logo.svg"
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -11,7 +11,7 @@ const Navbar = () => {
           <div className="w-60 max-w-full px-4">
             <a href="/#" className="block w-full py-5">
               <img
-                src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo-primary.svg"
+                src={logo}
                 alt="logo"
                 className="dark:hidden"
               />

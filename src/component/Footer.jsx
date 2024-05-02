@@ -1,4 +1,4 @@
-
+import logo from "../assets/logo.svg"
 
 const Footer = () => {
   return (
@@ -10,7 +10,7 @@ const Footer = () => {
               <div className="mb-10 w-full">
                 <a href="/#" className="mb-6 inline-block max-w-[160px]">
                   <img
-                    src="https://cdn.tailgrids.com/2.0/image/assets/images/logo/logo.svg"
+                    src={logo}
                     alt="logo"
                     className="max-w-full dark:hidden"
                   />

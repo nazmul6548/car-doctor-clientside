@@ -1,21 +1,56 @@
 import { Link } from "react-router-dom";
-import login from "../assets/images/login/login.svg"
+import logins from "../assets/images/login/login.svg"
+import { useContext } from "react";
+import { AuthContext } from "../component/AuthProvider";
+import swal from "sweetalert";
 
 const LogIn = () => {
+    const {login} = useContext(AuthContext)
 
     const handleLogIn = (e) => {
         e.preventDefault();
+        const form = e.target;
+        const email = form.email.value;
+        const password=form.password.value;
+        const result = {email,password}
+        console.log(result);
+
+    login(email,password)
+
+    .then((result) => {
+        if (result.user) {
+            // navigate(div)
+            // toast.success("Login successful!");
+            console.log(result.user);
+        }
+    })
+
+
+    .then(() => {
+        swal({
+          title: "LogIn successful",
+          // text: "You clicked the button!",
+          icon: "success",
+          // button: "Aww yiss!",
+          
+          
+        });
+    })
+    .catch(error => {
+        console.error("Error:", error);
+    });
+
     }
     return (
         <div className="mt-8">
              <div className="font-sans text-#333">
       <div className="grid lg:grid-cols-2 md:grid-cols-2 items-center gap-4">
         <div className="max-md:order-1 h-screen min-h-full">
-          <img src={login} className="w-full h-full object-cover" alt="login-image" />
+          <img src={logins} className="w-full h-full object-cover" alt="login-image" />
         </div>
         <form onSubmit={handleLogIn} className="max-w-xl w-full p-6 mx-auto">
           <div className="mb-12">
-            <h3 className="text-4xl text-[#FF3811] font-extrabold">Sign in</h3>
+            <h3 className="text-4xl text-[#FF3811] font-extrabold">Log in</h3>
             <p className="text-sm mt-6">Don't have an account <Link to="/register" className="text-[#FF3811] font-semibold hover:underline ml-1 whitespace-nowrap">Register here</Link></p>
           </div>
           <div>
@@ -58,9 +93,7 @@ const LogIn = () => {
             </div>
           </div>
           <div className="mt-12">
-            <button type="button" className="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded-full text-white bg-[#FF3811] hover:bg-blue-700 focus:outline-none">
-              Sign in
-            </button>
+            <input type="submit" value="LogIn"  className="w-full shadow-xl py-2.5 px-4 text-sm font-semibold rounded-full text-white bg-[#FF3811] hover:bg-blue-700 focus:outline-none" />
           </div>
           <p className="my-8 text-sm text-gray-400 text-center">or continue with</p>
           <div className="space-x-8 flex justify-center">

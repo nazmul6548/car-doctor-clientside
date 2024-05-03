@@ -1,12 +1,29 @@
 import { Link } from "react-router-dom";
 import login from "../assets/images/login/login.svg"
+import { useContext } from "react";
+import { AuthContext } from "../component/AuthProvider";
 
 const Register = () => {
-    const handleRegister = (e) =>{
-        
+        const {createUser} =useContext(AuthContext)
+
+
+        const handleRegister = (e) =>{
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email =form.email.value;
+        const password = form.password.value;
+        const result = {name,email,password}
+        console.log(result);
+        createUser(email,password)
+        .then(result => {
+           const user = result.user;
+        console.log(user);
+        })
+        .then(error => console.log(error))
     }
     return (
-        <div>
+        <div className="min-h-screen">
              <div className="font-sans bg-white text-[#333] md:h-screen">
       <div className="grid md:grid-cols-2 items-center gap-8 h-full">
         <div className="max-md:order-1 p-4 bg-gray-50 h-full">
@@ -55,14 +72,12 @@ const Register = () => {
             </div>
             <div className="flex items-center mt-8">
               <input id="remember-me" name="remember-me" type="checkbox" className="h-4 w-4 shrink-0 rounded" />
-              <label for="remember-me" className="ml-3 block text-sm">
+              <label  className="ml-3 block text-sm">
                 I accept the <a href="javascript:void(0);" className="text-[#FF3811] font-semibold hover:underline ml-1">Terms and Conditions</a>
               </label>
             </div>
             <div className="mt-12">
-              <button type="button" className="w-full py-2.5 px-8 text-sm font-semibold rounded bg-[#FF3811] hover:bg-blue-600 text-white border focus:outline-none">
-                Creat an account
-              </button>
+              <input type="submit" value="Create an account" className="w-full py-2.5 px-8 text-sm font-semibold rounded bg-[#FF3811] hover:bg-blue-600 text-white border focus:outline-none" />
               <p className="text-sm mt-8">Already have an account? <Link to="/logIn" className="text-[#FF3811] font-semibold hover:underline ml-1">Login here</Link></p>
             </div>
           </form>

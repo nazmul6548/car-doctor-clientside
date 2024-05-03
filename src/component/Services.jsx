@@ -30,7 +30,7 @@ const Services = () => {
             <h1 className="text-4xl md:text-6xl p-4 font-bold">Our Services</h1>
             <p className="w-[100%] md:w-3/4 m-auto">the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3">
+        <div className="grid grid-cols-1 md:grid-cols-3 mt-12">
             {services.map(item => (
                 
                     <div key={item._id} className="bg-white shadow-[0_8px_12px_-6px_rgba(0,0,0,0.2)] border p-2 w-full max-w-sm rounded-lg font-[sans-serif] overflow-hidden mx-auto mt-4">

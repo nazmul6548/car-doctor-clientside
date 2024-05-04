@@ -1,10 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { ImCross } from "react-icons/im";
 import logo from "../assets/logo.svg"
 import { Link } from "react-router-dom";
+import { AuthContext } from "../component/AuthProvider";
 
 
 const Navbar = () => {
+  const {user,logout} = useContext(AuthContext)
+
+  const handleclick = () => {
+    logout()
+    .then(() => {})
+    .then(error => console.log(error))
+
+
+  };
     const [open, setOpen] = useState(false);
     return (
         <header className={`flex w-full items-center bg-white dark:bg-dark`}>
@@ -56,12 +66,21 @@ const Navbar = () => {
               </nav>
             </div>
             <div className="hidden justify-end pr-16 sm:flex lg:pr-0">
-              <Link
-                to="/logIn"
+            {
+                user?.email?<Link onClick={handleclick}
+                to="/"
                 className="px-7 py-3 text-base font-medium text-dark hover:text-primary dark:text-white"
               >
-                Sign in
-              </Link>
+                Log Out
+              </Link> :  <Link
+              to="/logIn"
+              className="px-7 py-3 text-base font-medium text-dark hover:text-primary dark:text-white"
+            >
+              Log innn
+            </Link>
+              }
+             
+              
 
               <a
                 href="/#"

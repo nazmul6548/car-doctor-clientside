@@ -1,18 +1,40 @@
 import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../component/AuthProvider";
+import { useContext } from "react";
+import swal from "sweetalert";
 
 
 const Checkout = () => {
     const data = useLoaderData()
     console.log(data);
-    const {description,price,img,title} = data;
+    const {price,img,title} = data;
 
+    const {user} = useContext(AuthContext)
+    console.log(user);
     const handleform = (e) => {
         e.preventDefault();
         const form = e.target;
         const firstname = form.firstname.value;
-        const lastname = form.lastname.value;
-        const result = {firstname,lastname}
+        // const lastname = form.lastname.value;
+        const date = form.date.value;
+        const email = user?.email;
+        const text =form.text.value;
+        const result = {firstname,date,email,text,img,price,title}
         console.log(result);
+        fetch('http://localhost:5000/booking',{
+            method:"POST",
+            headers:{
+                'content-type': 'application/json'
+            },
+            body:JSON.stringify(result)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            if (data.insertedId) {
+                swal("Here's the title!", "...and here's the text!");
+            }
+        })
     }
     return (
         <div>
@@ -20,7 +42,7 @@ const Checkout = () => {
             <form onSubmit={handleform} className="font-[sans-serif] max-w-4xl mx-auto">
   <div className="grid sm:grid-cols-2 gap-6">
     <div className="relative flex items-center">
-      <input type="text" name="firstname" placeholder="First Name"
+      <input  type="text" name="firstname" placeholder="your name"
         className="px-4 py-3 bg-[#f0f1f2] text-black w-full text-sm border outline-[#007bff] rounded" />
       <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" className="w-[18px] h-[18px] absolute right-4"
         viewBox="0 0 24 24">
@@ -30,7 +52,7 @@ const Checkout = () => {
           data-original="#000000"></path>
       </svg>
     </div>
-    <div className="relative flex items-center">
+    {/* <div className="relative flex items-center">
       <input type="text" name="lastname" placeholder="Last Name"
         className="px-4 py-3 bg-[#f0f1f2] text-black w-full text-sm border outline-[#007bff] rounded" />
       <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" className="w-[18px] h-[18px] absolute right-4"
@@ -40,9 +62,9 @@ const Checkout = () => {
           d="M14 15H6a5 5 0 0 0-5 5 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 5 5 0 0 0-5-5zm8-4h-2.59l.3-.29a1 1 0 0 0-1.42-1.42l-2 2a1 1 0 0 0 0 1.42l2 2a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-.3-.29H22a1 1 0 0 0 0-2z"
           data-original="#000000"></path>
       </svg>
-    </div>
+    </div> */}
     <div className="relative flex items-center">
-      <input type="email" placeholder="Email"
+      <input type="email" defaultValue={user?.email} placeholder="Email"
         className="px-4 py-3 bg-[#f0f1f2] text-black w-full text-sm border outline-[#007bff] rounded" />
       <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" className="w-[18px] h-[18px] absolute right-4"
         viewBox="0 0 682.667 682.667">
@@ -62,7 +84,7 @@ const Checkout = () => {
       </svg>
     </div>
     <div className="relative flex items-center">
-      <input type="password" name="pass" placeholder="Password"
+      <input type="date" name="date" 
         className="px-4 py-3 bg-[#f0f1f2] text-black w-full text-sm border outline-[#007bff] rounded" />
       <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb"
         className="w-[18px] h-[18px] absolute right-4 cursor-pointer" viewBox="0 0 128 128">
@@ -71,7 +93,7 @@ const Checkout = () => {
           data-original="#000000"></path>
       </svg>
     </div>
-    <textarea placeholder='Type Message'
+    <textarea placeholder='Type Message' name="text"
   className=" bg-white w-full text-sm border  border-gray-300 outline-[#007bff] rounded" rows="8"  ></textarea>
 
   </div>

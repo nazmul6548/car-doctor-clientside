@@ -58,7 +58,9 @@ const Navbar = () => {
                 <ul className="block lg:flex">
                   <ListItem NavLink="/">Home</ListItem>
                   
-                  <ListItem NavLink="/#">About</ListItem>
+                  {
+                    user && <ListItem NavLink="/booking">MyBookings</ListItem>
+                  }
                   <ListItem NavLink="/#">Services</ListItem>
                   <ListItem NavLink="/#">Blog</ListItem>
                   <ListItem NavLink="/#">Contact</ListItem>
@@ -76,7 +78,7 @@ const Navbar = () => {
               to="/logIn"
               className="px-7 py-3 text-base font-medium text-dark hover:text-primary dark:text-white"
             >
-              Log innn
+              Log in
             </Link>
               }
              

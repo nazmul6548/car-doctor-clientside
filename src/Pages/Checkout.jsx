@@ -8,8 +8,8 @@ const Checkout = () => {
     const data = useLoaderData()
     console.log(data);
     const {price,img,title} = data;
-
-    const {user} = useContext(AuthContext)
+const {user} = useContext(AuthContext)
+    
     console.log(user);
     const handleform = (e) => {
         e.preventDefault();

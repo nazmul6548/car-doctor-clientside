@@ -43,7 +43,7 @@ const Services = () => {
                     </div>
                     <div className="flex justify-between">
                     <p className="mt-2 text-sm text-[#FF3811] font-bold">Price :${item.price}</p>
-                    <Link to={`/checkout/:${item._id}`}>
+                    <Link to={`/checkout/${item._id}`}>
                     <button className="btn btn-square">
                       {/* <svg xmlns="" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" /><FaArrowRight /></svg>
                        */}

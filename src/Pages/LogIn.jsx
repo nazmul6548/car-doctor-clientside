@@ -1,12 +1,16 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
 import logins from "../assets/images/login/login.svg"
 import { useContext } from "react";
 import { AuthContext } from "../component/AuthProvider";
 import swal from "sweetalert";
+import { toast } from "react-toastify";
+import axios from "axios";
 
 const LogIn = () => {
     const {login} = useContext(AuthContext)
-
+    const navigate = useNavigate()
+const location = useLocation()
+console.log(location)
     const handleLogIn = (e) => {
         e.preventDefault();
         const form = e.target;
@@ -18,11 +22,26 @@ const LogIn = () => {
     login(email,password)
 
     .then((result) => {
+      
+      
+        
+      
         if (result.user) {
-            // navigate(div)
-            // toast.success("Login successful!");
-            console.log(result.user);
+          toast.success("Login successful!");
+          const loggedInUser = result.user;
+          console.log(loggedInUser);
+          const user = {email};
+          axios.post('http://localhost:5000/jwt',user,{withCredentials:true})
+          .then(res => {
+            console.log(res.data);
+            if (res.data.success) {
+              navigate(location?.state ? location?.state : "/")
+            }
+          })
+          // navigate(location?.state ? location?.state : "/")
+
         }
+      // });
     })
 
 

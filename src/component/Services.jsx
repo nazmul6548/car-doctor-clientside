@@ -4,26 +4,18 @@ import { FaArrowRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 const Services = () => {
     const [services, setServices] = useState([]);
+    console.log(services);
     const [error, setError] = useState(null);
     useEffect(() => {
         fetch("http://localhost:5000/services")
-            .then(result => {
-                if (!result.ok) {
-                    throw new Error("Failed to fetch services.");
-                }
-                return result.json();
-            })
-            .then(data => {
-                console.log(data);
-                setServices(data);
-            })
-            .catch(error => {
-                setError(error.message);
-            });
+           .then(res => res.json())
+           .then(data =>{
+            setServices(data);
+           })
     }, []);
-    if (error) {
-        return <div>Error: {error}</div>;
-    }
+    // if (error) {
+    //     return <div>Error: {error}</div>;
+    // }
     return (
         <div>
         <div className="text-center">

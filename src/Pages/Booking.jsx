@@ -66,9 +66,9 @@ const Booking = () => {
       .then(res => {
         setBooking(res.data)
       })
-        // fetch(url)
-        // .then(res => res.json())
-        // .then(data => setBooking(data))
+        fetch(url)
+        .then(res => res.json())
+        .then(data => setBooking(data))
     },[url]);
     return (
         <div>

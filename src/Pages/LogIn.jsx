@@ -1,4 +1,4 @@
-import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import logins from "../assets/images/login/login.svg"
 import { useContext } from "react";
 import { AuthContext } from "../component/AuthProvider";
